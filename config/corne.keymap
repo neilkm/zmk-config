@@ -18,6 +18,31 @@
 //#define MACOS
 #define LINUX
 
+// Tap hold timings (ms):
+#define INDEX_MODS 50
+#define HOME_MODS 100
+#define THUMB_MODS 75
+
+// Cursor movement speed (pixels per tick-ish)
+#define CURSOR_STEP 40
+
+// Mouse move directions (pointer)
+// NOTE: For &mmv, positive Y is *down*, negative Y is *up*. :contentReference[oaicite:1]{index=1}
+#define CURSOR_UP_FAST    MOVE_Y(-CURSOR_STEP)
+#define CURSOR_DOWN_FAST  MOVE_Y(CURSOR_STEP)
+#define CURSOR_LEFT_FAST  MOVE_X(-CURSOR_STEP)
+#define CURSOR_RIGHT_FAST MOVE_X(CURSOR_STEP)
+
+// Scroll speed (wheel units per tick-ish)
+#define SCRL_STEP 40
+
+// Mouse scroll directions
+// NOTE: For &msc, positive Y is *up*, negative Y is *down*. :contentReference[oaicite:2]{index=2}
+#define SCRL_UP_FAST      MOVE_Y(SCRL_STEP)
+#define SCRL_DOWN_FAST    MOVE_Y(-SCRL_STEP)
+#define SCRL_LEFT_FAST    MOVE_X(-SCRL_STEP)
+#define SCRL_RIGHT_FAST   MOVE_X(SCRL_STEP)
+
 // macro defines
 #define LEADER1 COLON // vim leader
 #define LEADER2 LC(B) // tmux leader
@@ -27,6 +52,8 @@
 #define NEIL_PASTE C_AC_PASTE
 #define NEIL_UNDO C_AC_UNDO
 #define NEIL_REDO C_AC_REDO
+#define NEIL_REFRESH C_AC_REFRESH
+
 // -- OS Specific shortcuts --
 /*
 #ifdef WINDOWS
@@ -65,50 +92,44 @@
 
 / {
     behaviors {
+        // Home row mods
         hrm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
 
-            // strictly time-based: other keys don't force a hold
             flavor = "tap-preferred";
-
-            // must hold > 500ms to become a hold
-            tapping-term-ms = <300>;
-
-            // optional; 0 = disable quick-tap special behavior
+            tapping-term-ms = <HOME_MODS>;
             quick-tap-ms = <0>;
 
-            // standard mapping: first arg = hold behavior, second = tap behavior
+            // hold behavior, tap behavior
             bindings = <&kp>, <&kp>;
         };
-		ishft: index_shift_mod {
+
+        // Index finger shift with shorter tapping term
+        ishft: index_shift_mod {
             compatible = "zmk,behavior-hold-tap";
             label = "INDEX_SHIFT";
             #binding-cells = <2>;
 
-            // strictly time-based: other keys don't force a hold
             flavor = "tap-preferred";
-
-            tapping-term-ms = <100>;
-
-            // optional; 0 = disable quick-tap special behavior
+            tapping-term-ms = <INDEX_MODS>;
             quick-tap-ms = <0>;
 
-            // standard mapping: first arg = hold behavior, second = tap behavior
             bindings = <&kp>, <&kp>;
         };
+
+        // Thumb layer-tap
         thlt: thumb_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "THUMB_LAYER_TAP";
             #binding-cells = <2>;
 
-            // same semantics: strictly time-based, tap-preferred
             flavor = "tap-preferred";
-            tapping-term-ms = <150>;
+            tapping-term-ms = <THUMB_MODS>;
             quick-tap-ms = <0>;
 
-            // hold = momentary layer, tap = key
+            // hold = &mo (layer), tap = &kp (key)
             bindings = <&mo>, <&kp>;
         };
     };
@@ -164,7 +185,7 @@
 	shortcut_layer {//4
             display-name = "Shortcut";
             bindings = <
-           /*top row*/&trans &trans &trans &trans &trans /**/ &kp QUIT &kp FULLSCREEN &kp MOVE_DKTP_UP &trans &trans 
+           /*top row*/&trans &trans &trans &trans &kp NEIL_REFRESH /**/ &kp QUIT &kp FULLSCREEN &kp MOVE_DKTP_UP &trans &trans 
            /*middle row*/&trans &trans &trans &trans &kp NEWBROWSER /**/ &kp NEWTERM &kp MOVE_DKTP_LF &kp MOVE_DKTP_DN &kp MOVE_DKTP_RT &trans
            /*bottom row*/&trans &trans &trans &trans &kp APPSEARCH /**/ &kp FILEEXPLORER &kp MINIMIZE &trans &trans &trans
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
@@ -173,19 +194,19 @@
 	mouse_layer {//5
             display-name = "Mouse";
             bindings = <
-           /*top row*/&trans &trans &trans &trans &trans /**/ &trans &kp C_AC_BACK &mmv MOVE_UP &kp C_AC_FORWARD &trans 
-           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &trans &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans
-           /*bottom row*/&trans &trans &trans &mo 6 &trans /**/  &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans
-            /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
-            >;
+		/*top row*/ &trans &trans &trans &trans &trans /**/ &kp PG_UP &kp C_AC_BACK &mmv CURSOR_UP_FAST &kp C_AC_FORWARD &trans
+		/*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &kp PG_DN &mmv CURSOR_LEFT_FAST &mmv CURSOR_DOWN_FAST &mmv CURSOR_RIGHT_FAST &trans
+		/*bottom row*/&trans &trans &trans &mo 6 &trans /**/ &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans
+         /*thumb row*/ &trans &trans &trans /**/ &trans &trans &trans 
+        >;
         };
 	scroll_layer {//6
             display-name = "Scroll";
             bindings = <
-           /*top row*/&trans &trans &trans &trans &trans /**/ &trans &kp C_AC_BACK &msc SCRL_UP &kp C_AC_FORWARD &trans
-           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans
-           /*bottom row*/&trans &trans &trans &trans &trans /**/  &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans
-            /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
+           /*top row*/   &trans &trans &trans &trans &trans /**/ &trans &kp C_AC_BACK &msc SCRL_UP_FAST &kp C_AC_FORWARD &trans
+	       /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &trans &msc SCRL_LEFT_FAST &msc SCRL_DOWN_FAST &msc SCRL_RIGHT_FAST &trans
+		   /*bottom row*/&trans &trans &trans &trans &trans /**/ &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans
+              /*thumb row*/ &trans &trans &trans /**/ &trans &trans &trans 
             >;
         };	
 	function_layer {//7
