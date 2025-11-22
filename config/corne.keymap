@@ -74,7 +74,7 @@
             flavor = "tap-preferred";
 
             // must hold > 500ms to become a hold
-            tapping-term-ms = <500>;
+            tapping-term-ms = <300>;
 
             // optional; 0 = disable quick-tap special behavior
             quick-tap-ms = <0>;
@@ -89,7 +89,7 @@
 
             // same semantics: strictly time-based, tap-preferred
             flavor = "tap-preferred";
-            tapping-term-ms = <500>;
+            tapping-term-ms = <150>;
             quick-tap-ms = <0>;
 
             // hold = momentary layer, tap = key
