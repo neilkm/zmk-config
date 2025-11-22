@@ -12,7 +12,43 @@
 #define LEADER2 LC(B)
 
 / {
-        keymap {
+/*
+// Keymap rev2
+    keymap {
+        compatible = "zmk.keymap";
+
+        default_layer {
+            display-name = "Default Layer";
+            bindings = <
+           &trans &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &trans 
+           &trans &mt LGUI A &mt LCTL S &mt LALT D &mt LSHIFT F &kp G &kp H &mt RSHIFT J &mt RALT K &mt RCTL L &mt RGUI SEMI &trans 
+           &trans &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp FSLH &trans 
+            &kp LGUI &mt LSHIFT TAB &lt 2 RET &lt 1 SPACE &mt RCTL BSPC &kp ESCAPE 
+            >;
+        };
+        lower_layer {
+            display-name = "Lower Layer";
+            bindings = <
+           &trans &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &trans 
+           &trans &mt LGUI A &mt LCTL S &mt LALT D &mt LSHIFT F &kp G &kp H &mt RSHIFT J &mt RALT K &mt RCTL L &mt RGUI SEMI &trans 
+           &trans &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp FSLH &trans 
+            &kp LGUI &mt LSHIFT TAB &lt 2 RET &lt 1 SPACE &mt RCTL BSPC &kp ESCAPE 
+            >;
+        };
+        raise_layer {
+            display-name = "Raise Layer";
+            bindings = <
+           &trans &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &trans 
+           &trans &mt LGUI A &mt LCTL S &mt LALT D &mt LSHIFT F &kp G &kp H &mt RSHIFT J &mt RALT K &mt RCTL L &mt RGUI SEMI &trans 
+           &trans &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp FSLH &trans 
+            &kp LGUI &mt LSHIFT TAB &lt 2 RET &lt 1 SPACE &mt RCTL BSPC &kp ESCAPE 
+            >;
+        };    
+    };
+*/
+
+// Keymap rev1
+    keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
