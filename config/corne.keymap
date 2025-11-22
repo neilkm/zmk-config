@@ -29,33 +29,33 @@
 #define REDO C_AC_REDO
 // -- OS Specific shortcuts --
 #ifdef WINDOWS
-#define NEWTERM LGUI LCTL T // windows 
-#define QUIT LALT F4 // windows/linux
-#define APPSEARCH LGUI S
+#define NEWTERM LG(LC(T)) // windows 
+#define QUIT LA(F4) // windows/linux
+#define APPSEARCH LG(S)
 #define FILEEXPLORER C_AL_FILES
 #define NEWBROWSER C_AL_WWW
 #endif
 
 #ifdef MACOS
 #define NEWTERM SPACE // mac -- dont have shortcut setup yet 
-#define QUIT LGUI Q // mac quit app
-#define APPSEARCH LGUI SPACE
-#define FILEEXPLORER LGUI LALT SPACE
+#define QUIT LG(Q) // mac quit app
+#define APPSEARCH LG(SPACE)
+#define FILEEXPLORER LG(LA(SPACE))
 #define NEWBROWSER C_AL_WWW
 #endif
 
 #ifdef LINUX
-#define NEWTERM LCTL LALT T // linux 
-#define QUIT LALT F4 // windows/linux
+#define NEWTERM LC(LA(T)) // linux 
+#define QUIT LA(F4) // windows/linux
 #define APPSEARCH LGUI
 #define FILEEXPLORER C_AL_FILES
 #define NEWBROWSER C_AL_WWW
 #define FULLSCREEN F11
-#define MINIMIZE LGUI H
-#define MOVE_DKTP_UP LGUI LSHIFT UP
-#define MOVE_DKTP_LF LGUI LSHIFT LEFT
-#define MOVE_DKTP_DN LGUI LSHIFT DOWN
-#define MOVE_DKTP_RT LGUI LSHIFT RIGHT
+#define MINIMIZE LG(H)
+#define MOVE_DKTP_UP LG(LS(UP))
+#define MOVE_DKTP_LF LG(LS(LEFT))
+#define MOVE_DKTP_DN LG(LS(DOWN))
+#define MOVE_DKTP_RT LG(LS(RIGHT))
 #endif
 
 / {
