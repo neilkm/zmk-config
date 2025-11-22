@@ -24,7 +24,7 @@
 #define THUMB_MODS 75
 
 // Cursor movement speed (pixels per tick-ish)
-#define CURSOR_STEP 40
+#define CURSOR_STEP 200
 
 // Mouse move directions (pointer)
 // NOTE: For &mmv, positive Y is *down*, negative Y is *up*. :contentReference[oaicite:1]{index=1}
@@ -34,7 +34,7 @@
 #define CURSOR_RIGHT_FAST MOVE_X(CURSOR_STEP)
 
 // Scroll speed (wheel units per tick-ish)
-#define SCRL_STEP 40
+#define SCRL_STEP 200
 
 // Mouse scroll directions
 // NOTE: For &msc, positive Y is *up*, negative Y is *down*. :contentReference[oaicite:2]{index=2}
