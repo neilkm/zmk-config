@@ -91,48 +91,47 @@
 #endif
 
 / {
-    behaviors {
-        // Home row mods
-        hrm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
+    // Tap hold behavior 
+behaviors { 
+	hrm: homerow_mods { 
+		compatible = "zmk,behavior-hold-tap"; 
+		label = "HOMEROW_MODS"; 
+		#binding-cells = <2>; 
+		// strictly time-based: other keys don't force a hold 
+		flavor = "tap-preferred"; 
+		// must hold > 500ms to become a hold 
+		tapping-term-ms = <HOME_MODS>; 
+		// optional; 0 = disable quick-tap special behavior 
+		quick-tap-ms = <0>; 
+		// standard mapping: first arg = hold behavior, second = tap behavior 
+		bindings = <&kp>, <&kp>; 
+	}; 
+	ishft: index_shift_mod { 
+		compatible = "zmk,behavior-hold-tap"; 
+		label = "INDEX_SHIFT"; 
+		#binding-cells = <2>; 
+		// strictly time-based: other keys don't force a hold 
+		flavor = "tap-preferred"; 
+		tapping-term-ms = <INDEX_MODS>; 
+		// optional; 0 = disable quick-tap special behavior 
+		quick-tap-ms = <0>; 
+		// standard mapping: first arg = hold behavior, second = tap behavior 
+		bindings = <&kp>, <&kp>; 
+	}; 
+	thlt: thumb_layer_tap { 
+		compatible = "zmk,behavior-hold-tap"; 
+		label = "THUMB_LAYER_TAP"; 
+		#binding-cells = <2>; 
+		// same semantics: strictly time-based, tap-preferred 
+		flavor = "tap-preferred"; 
+		tapping-term-ms = <THUMB_MODS>; 
+		quick-tap-ms = <0>; 
+		// hold = momentary layer, tap = key 
+		bindings = <&mo>, <&kp>; 
+	}; 
+};
 
-            flavor = "tap-preferred";
-            tapping-term-ms = <HOME_MODS>;
-            quick-tap-ms = <0>;
-
-            // hold behavior, tap behavior
-            bindings = <&kp>, <&kp>;
-        };
-
-        // Index finger shift with shorter tapping term
-        ishft: index_shift_mod {
-            compatible = "zmk,behavior-hold-tap";
-            label = "INDEX_SHIFT";
-            #binding-cells = <2>;
-
-            flavor = "tap-preferred";
-            tapping-term-ms = <INDEX_MODS>;
-            quick-tap-ms = <0>;
-
-            bindings = <&kp>, <&kp>;
-        };
-
-        // Thumb layer-tap
-        thlt: thumb_layer_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "THUMB_LAYER_TAP";
-            #binding-cells = <2>;
-
-            flavor = "tap-preferred";
-            tapping-term-ms = <THUMB_MODS>;
-            quick-tap-ms = <0>;
-
-            // hold = &mo (layer), tap = &kp (key)
-            bindings = <&mo>, <&kp>;
-        };
-    };
+};
 
  chosen {
         // Use the 5-column Corne physical layout instead of the default 6-col
