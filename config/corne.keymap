@@ -80,7 +80,7 @@
             display-name = "Base";
             bindings = <
            /*top row*/&trans &kp Q &kp W &kp E &kp R &kp T /**/ &kp Y &kp U &kp I &kp O &kp P &trans 
-           /*middle row*/&trans &mt LGUI A &mt LCTL S &mt LALT D &mt LSHIFT F &kp G /**/ &kp H &mt RSHIFT J &mt RALT K &mt RCTL L &mt RGUI SEMI &trans 
+           /*middle row*/&trans &mt LCTL A &mt LGUI S &mt LALT D &mt LSHIFT F &kp G /**/ &kp H &mt RSHIFT J &mt RALT K &mt RGUI L &mt RCTL SEMI &trans 
            /*bottom row*/ &trans &kp Z &kp X &kp C &kp V &kp B /**/ &kp N &kp M &kp COMMA &kp DOT &kp FSLH &trans 
             /*thumb row*/&lt 7 TAB &lt 4 DEL &lt 2 RET /**/ &lt 1 SPACE &lt 3 BSPC &lt 5 ESCAPE 
             >;
