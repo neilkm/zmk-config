@@ -21,12 +21,12 @@
 // macro defines
 #define LEADER1 COLON // vim leader
 #define LEADER2 LC(B) // tmux leader
-#define K_COPY C_AC_COPY
-#define K_CUT C_AC_CUT
-#define K_PRINT C_AC_PRINT
-#define K_PASTE C_AC_PASTE
-#define K_UNDO C_AC_UNDO
-#define K_REDO C_AC_REDO
+#define NEIL_COPY C_AC_COPY
+#define NEIL_CUT C_AC_CUT
+#define NEIL_PRINT C_AC_PRINT
+#define NEIL_PASTE C_AC_PASTE
+#define NEIL_UNDO C_AC_UNDO
+#define NEIL_REDO C_AC_REDO
 // -- OS Specific shortcuts --
 /*
 #ifdef WINDOWS
@@ -88,9 +88,9 @@
         nav_layer {//1
             display-name = "Nav";
             bindings = <
-           /*top row*/&trans &trans &trans &trans &kp K_PRINT &kp K_CUT /**/ &kp INS &kp HOME &kp UP &kp END &trans &trans 
-           /*middle row*/&trans &kp LCTL &kp LGUI &kp LALT &kp LSHIFT &kp K_COPY /**/ &kp K_PASTE &kp LEFT &kp DOWN &kp RIGHT &kp LC(C) &trans 
-           /*bottom row*/&trans &trans &trans &trans &trans &kp K_UNDO /**/ &kp K_REDO &trans &trans &trans &trans &trans 
+           /*top row*/&trans &trans &trans &trans &kp NEIL_PRINT &kp NEIL_CUT /**/ &kp INS &kp HOME &kp UP &kp END &trans &trans 
+           /*middle row*/&trans &kp LCTL &kp LGUI &kp LALT &kp LSHIFT &kp NEIL_COPY /**/ &kp NEIL_PASTE &kp LEFT &kp DOWN &kp RIGHT &kp LC(C) &trans 
+           /*bottom row*/&trans &trans &trans &trans &trans &kp NEIL_UNDO /**/ &kp NEIL_REDO &trans &trans &trans &trans &trans 
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
             >;
         };
