@@ -21,12 +21,12 @@
 // macro defines
 #define LEADER1 COLON // vim leader
 #define LEADER2 LC(B) // tmux leader
-#define COPY C_AC_COPY
-#define CUT C_AC_CUT
-#define PRINT C_AC_PRINT
-#define PASTE C_AC_PASTE
-#define UNDO C_AC_UNDO
-#define REDO C_AC_REDO
+#define K_COPY C_AC_COPY
+#define K_CUT C_AC_CUT
+#define K_PRINT C_AC_PRINT
+#define K_PASTE C_AC_PASTE
+#define K_UNDO C_AC_UNDO
+#define K_REDO C_AC_REDO
 // -- OS Specific shortcuts --
 #ifdef WINDOWS
 #define NEWTERM LG(LC(T)) // windows 
@@ -81,9 +81,9 @@
         nav_layer {//1
             display-name = "Nav";
             bindings = <
-           /*top row*/&trans &trans &trans &kp PRINT &kp CUT /**/ &kp INS &kp HOME &kp UP &kp END &trans 
-           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &kp COPY /**/ &kp PASTE &kp LEFT &kp DOWN &kp RIGHT &kp LC(C) 
-           /*bottom row*/&trans &trans &trans &trans &kp UNDO /**/ &kp REDO &trans &trans &trans &trans 
+           /*top row*/&trans &trans &trans &kp K_PRINT &kp K_CUT /**/ &kp INS &kp HOME &kp UP &kp END &trans 
+           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &kp K_COPY /**/ &kp K_PASTE &kp LEFT &kp DOWN &kp RIGHT &kp LC(C) 
+           /*bottom row*/&trans &trans &trans &trans &kp K_UNDO /**/ &kp K_REDO &trans &trans &trans &trans 
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
             >;
         };
