@@ -64,12 +64,16 @@
 #endif
 
 / {
-/*
  chosen {
         // Use the 5-column Corne physical layout instead of the default 6-col
         zmk,physical-layout = &foostan_corne_5col_layout;
     };
-*/
+
+zmk,behavior-hold-tap {
+    tapping-term-ms = <200>;
+    quick-tap-ms = <150>;
+    hold-trigger-ms = <0>;
+};
 
 // Keymap rev2
 #ifdef REV2
@@ -79,72 +83,72 @@
         alpha_layer {//0
             display-name = "Base";
             bindings = <
-           /*top row*/&trans &kp Q &kp W &kp E &kp R &kp T /**/ &kp Y &kp U &kp I &kp O &kp P &trans 
-           /*middle row*/&trans &mt LCTL A &mt LGUI S &mt LALT D &mt LSHIFT F &kp G /**/ &kp H &mt RSHIFT J &mt RALT K &mt RGUI L &mt RCTL SEMI &trans 
-           /*bottom row*/ &trans &kp Z &kp X &kp C &kp V &kp B /**/ &kp N &kp M &kp COMMA &kp DOT &kp FSLH &trans 
+           /*top row*/&kp Q &kp W &kp E &kp R &kp T /**/ &kp Y &kp U &kp I &kp O &kp P
+           /*middle row*/&mt LCTL A &mt LGUI S &mt LALT D &mt LSHIFT F &kp G /**/ &kp H &mt RSHIFT J &mt RALT K &mt RGUI L &mt RCTL SEMI
+           /*bottom row*/&kp Z &kp X &kp C &kp V &kp B /**/ &kp N &kp M &kp COMMA &kp DOT &kp FSLH
             /*thumb row*/&lt 7 TAB &lt 4 DEL &lt 2 RET /**/ &lt 1 SPACE &lt 3 BSPC &lt 5 ESCAPE 
             >;
         };
         nav_layer {//1
             display-name = "Nav";
             bindings = <
-           /*top row*/&trans &trans &trans &trans &kp NEIL_PRINT &kp NEIL_CUT /**/ &kp INS &kp HOME &kp UP &kp END &trans &trans 
-           /*middle row*/&trans &kp LCTL &kp LGUI &kp LALT &kp LSHIFT &kp NEIL_COPY /**/ &kp NEIL_PASTE &kp LEFT &kp DOWN &kp RIGHT &kp LC(C) &trans 
-           /*bottom row*/&trans &trans &trans &trans &trans &kp NEIL_UNDO /**/ &kp NEIL_REDO &trans &trans &trans &trans &trans 
+           /*top row*/&trans &trans &trans &kp NEIL_PRINT &kp NEIL_CUT /**/ &kp INS &kp HOME &kp UP &kp END &trans
+           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &kp NEIL_COPY /**/ &kp NEIL_PASTE &kp LEFT &kp DOWN &kp RIGHT &kp LC(C)
+           /*bottom row*/&trans &trans &trans &trans &kp NEIL_UNDO /**/ &kp NEIL_REDO &trans &trans &trans &trans
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
-            >;
+            >;v
         };
         num_layer {//2
             display-name = "Number";
             bindings = <
-           /*top row*/&trans &trans &trans &trans &trans &trans /**/ &trans &kp N1 &kp N2 &kp N3 &trans &trans 
-           /*middle row*/&trans &trans &trans &trans &trans &trans /**/ &trans &mt RSHIFT N4 &mt RALT N5 &mt RGUI N6 &kp RCTL &trans 
-           /*bottom row*/&trans &trans &trans &trans &trans &trans /**/ &trans &kp N7 &kp N8 &kp N9 &kp N0 &trans 
+           /*top row*/&trans &trans &trans &trans &trans /**/ &trans &kp N1 &kp N2 &kp N3 &trans
+           /*middle row*/&trans &trans &trans &trans &trans /**/ &trans &mt RSHIFT N4 &mt RALT N5 &mt RGUI N6 &kp RCTL
+           /*bottom row*/&trans &trans &trans &trans &trans /**/ &trans &kp N7 &kp N8 &kp N9 &kp N0 
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
             >;
         };
 	sym_layer {//3
             display-name = "Symbol";
             bindings = <
-           /*top row*/&trans &trans &kp EQUAL &kp UNDER &kp QMARK &kp SQT /**/ &kp DQT &kp PIPE &kp MINUS &kp PLUS &trans &trans 
-           /*middle row*/&trans &trans &kp LT &kp LBRC &kp LBKT &kp LPAR /**/ &kp RPAR &kp RBKT &kp RBRC &kp GT &trans &trans 
-           /*bottom row*/&trans &trans &trans &kp GRAVE &kp FSLH &kp SEMI /**/ &kp COLON &kp BSLH &kp TILDE &trans &trans &trans 
+           /*top row*/&trans &kp EQUAL &kp UNDER &kp QMARK &kp SQT /**/ &kp DQT &kp PIPE &kp MINUS &kp PLUS &trans
+           /*middle row*/&trans &kp LT &kp LBRC &kp LBKT &kp LPAR /**/ &kp RPAR &kp RBKT &kp RBRC &kp GT &trans
+           /*bottom row*/&trans &trans &kp GRAVE &kp FSLH &kp SEMI /**/ &kp COLON &kp BSLH &kp TILDE &trans &trans
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
             >;
         };
 	shortcut_layer {//4
             display-name = "Shortcut";
             bindings = <
-           /*top row*/&trans &trans &trans &trans &trans &trans /**/ &kp QUIT &kp FULLSCREEN &kp MOVE_DKTP_UP &trans &trans &trans 
-           /*middle row*/&trans &trans &trans &trans &trans &kp NEWBROWSER /**/ &kp NEWTERM &kp MOVE_DKTP_LF &kp MOVE_DKTP_DN &kp MOVE_DKTP_RT &trans &trans 
-           /*bottom row*/&trans &trans &trans &trans &trans &kp APPSEARCH /**/ &kp FILEEXPLORER &kp MINIMIZE &trans &trans &trans &trans 
+           /*top row*/&trans &trans &trans &trans &trans /**/ &kp QUIT &kp FULLSCREEN &kp MOVE_DKTP_UP &trans &trans 
+           /*middle row*/&trans &trans &trans &trans &kp NEWBROWSER /**/ &kp NEWTERM &kp MOVE_DKTP_LF &kp MOVE_DKTP_DN &kp MOVE_DKTP_RT &trans
+           /*bottom row*/&trans &trans &trans &trans &kp APPSEARCH /**/ &kp FILEEXPLORER &kp MINIMIZE &trans &trans &trans
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
             >;
         }; 
 	mouse_layer {//5
             display-name = "Mouse";
             bindings = <
-           /*top row*/&trans &trans &trans &trans &trans &trans /**/ &trans &kp C_AC_BACK &mmv MOVE_UP &kp C_AC_FORWARD &trans &trans 
-           /*middle row*/&trans &kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &trans &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans &trans 
-           /*bottom row*/&trans &trans &trans &trans &mo 6 &trans /**/  &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans &trans 
+           /*top row*/&trans &trans &trans &trans &trans /**/ &trans &kp C_AC_BACK &mmv MOVE_UP &kp C_AC_FORWARD &trans 
+           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &trans &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans
+           /*bottom row*/&trans &trans &trans &mo 6 &trans /**/  &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
             >;
         };
 	scroll_layer {//6
             display-name = "Scroll";
             bindings = <
-           /*top row*/&trans &trans &trans &trans &trans &trans /**/ &trans &kp C_AC_BACK &msc SCRL_UP &kp C_AC_FORWARD &trans &trans 
-           /*middle row*/&trans &kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans &trans 
-           /*bottom row*/&trans &trans &trans &trans &trans &trans /**/  &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans &trans 
+           /*top row*/&trans &trans &trans &trans &trans /**/ &trans &kp C_AC_BACK &msc SCRL_UP &kp C_AC_FORWARD &trans
+           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &trans &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT &trans
+           /*bottom row*/&trans &trans &trans &trans &trans /**/  &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
             >;
         };	
 	function_layer {//7
             display-name = "Function";
             bindings = <
-           /*top row*/&trans &trans &kp F1 &kp F2 &kp F3 &kp F4 /**/ &trans &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans &trans 
-           /*middle row*/&trans &trans &kp F5 &kp F6 &kp F7 &kp F8 /**/ &trans &kp C_PREV &kp C_PP &kp C_NEXT &trans &trans 
-           /*bottom row*/&trans &trans &kp F9 &kp F10 &kp F11 &kp F12 /**/ &trans &trans &trans &trans &trans &trans 
+           /*top row*/&trans &kp F1 &kp F2 &kp F3 &kp F4 /**/ &trans &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
+           /*middle row*/&trans &kp F5 &kp F6 &kp F7 &kp F8 /**/ &trans &kp C_PREV &kp C_PP &kp C_NEXT &trans 
+           /*bottom row*/&trans &kp F9 &kp F10 &kp F11 &kp F12 /**/ &trans &trans &trans &trans &trans
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
             >;
         };    
