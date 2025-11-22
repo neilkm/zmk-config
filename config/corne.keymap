@@ -64,16 +64,18 @@
 #endif
 
 / {
+	zmk,behavior-hold-tap {
+    	tapping-term-ms = <200>;
+    	quick-tap-ms = <150>;
+    	hold-trigger-ms = <0>;
+	};
+};
+
+/ {
  chosen {
         // Use the 5-column Corne physical layout instead of the default 6-col
         zmk,physical-layout = &foostan_corne_5col_layout;
     };
-
-zmk,behavior-hold-tap {
-    tapping-term-ms = <200>;
-    quick-tap-ms = <150>;
-    hold-trigger-ms = <0>;
-};
 
 // Keymap rev2
 #ifdef REV2
