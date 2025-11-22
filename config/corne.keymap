@@ -98,7 +98,7 @@
            /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &kp NEIL_COPY /**/ &kp NEIL_PASTE &kp LEFT &kp DOWN &kp RIGHT &kp LC(C)
            /*bottom row*/&trans &trans &trans &trans &kp NEIL_UNDO /**/ &kp NEIL_REDO &trans &trans &trans &trans
             /*thumb row*/&trans &trans &trans /**/ &trans &trans &trans 
-            >;v
+            >;
         };
         num_layer {//2
             display-name = "Number";
