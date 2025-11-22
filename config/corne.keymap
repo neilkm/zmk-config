@@ -61,7 +61,7 @@
 / {
  chosen {
         // Use the 5-column Corne physical layout instead of the default 6-col
-        zmk,physical-layout = &foostan_corne_5col_layout;
+        zmk.physical-layout = &foostan_corne_5col_layout;
     };
 
 // Keymap rev2
