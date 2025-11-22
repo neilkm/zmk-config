@@ -19,9 +19,9 @@
 #define LINUX
 
 // Tap hold timings (ms):
-#define INDEX_MODS 50
-#define HOME_MODS 100
-#define THUMB_MODS 75
+#define INDEX_MODS 125
+#define HOME_MODS 175
+#define THUMB_MODS 125
 
 // Cursor movement speed (pixels per tick-ish)
 #define CURSOR_STEP 200
@@ -168,7 +168,7 @@
             display-name = "Number";
             bindings = <
            /*top row*/   &trans &trans &trans &trans &trans /**/ &trans &kp N1 &kp N2 &kp N3 &trans
-           /*middle row*/&trans &trans &trans &trans &trans /**/ &trans &mt RSHIFT N4 &mt RALT N5 &mt RGUI N6 &kp RCTL
+           /*middle row*/&trans &trans &trans &trans &trans /**/ &trans &kp N4 &kp N5 &kp N6 &trans
            /*bottom row*/&trans &trans &trans &trans &trans /**/ &trans &kp N7 &kp N8 &kp N9 &kp N0 
            /*thumb row*/ &trans &trans &trans              /**/ &trans &trans &trans 
             >;
@@ -207,8 +207,8 @@
         scroll_layer { // 6
             display-name = "Scroll";
             bindings = <
-           /*top row*/   &trans &trans &trans &trans &trans /**/ &trans &kp C_AC_BACK &msc SCRL_UP_FAST &kp C_AC_FORWARD &trans
-           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &trans &msc SCRL_LEFT_FAST &msc SCRL_DOWN_FAST &msc SCRL_RIGHT_FAST &trans
+           /*top row*/   &trans &trans &trans &trans &trans /**/ &kp PG_UP &kp C_AC_BACK &msc SCRL_UP_FAST &kp C_AC_FORWARD &trans
+           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &kp PG_DN &msc SCRL_LEFT_FAST &msc SCRL_DOWN_FAST &msc SCRL_RIGHT_FAST &trans
            /*bottom row*/&trans &trans &trans &trans &trans /**/ &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans
            /*thumb row*/ &trans &trans &trans /**/ &trans &trans &trans 
             >;
