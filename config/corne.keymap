@@ -15,16 +15,16 @@
 
 // Which OS being used:
 //#define WINDOWS
-//#define MACOS
-#define LINUX
+#define MACOS
+//#define LINUX
 
 // Tap hold timings (ms):
-#define INDEX_MODS 125
-#define HOME_MODS 175
-#define THUMB_MODS 125
+#define INDEX_MODS 200
+#define HOME_MODS 275
+#define THUMB_MODS 250 
 
 // Cursor movement speed (pixels per tick-ish)
-#define CURSOR_STEP 200
+#define CURSOR_STEP 600
 
 // Mouse move directions (pointer)
 // For &mmv, positive Y is down, negative Y is up.
@@ -34,7 +34,7 @@
 #define CURSOR_RIGHT_FAST MOVE_X(CURSOR_STEP)
 
 // Scroll speed (wheel units per tick-ish)
-#define SCRL_STEP 200
+#define SCRL_STEP 75
 
 // Mouse scroll directions
 // For &msc, positive Y is up, negative Y is down.
@@ -65,16 +65,21 @@
 #endif
 */
 
-/*
 #ifdef MACOS
 #define NEWTERM SPACE // mac -- dont have shortcut setup yet 
 #define QUIT LG(Q) // mac quit app
 #define APPSEARCH LG(SPACE)
 #define FILEEXPLORER LG(LA(SPACE))
 #define NEWBROWSER C_AL_WWW
+#define FULLSCREEN LG(LC(F))
+#define MINIMIZE LG(M)
+#define MOVE_DKTP_UP LC(UP)
+#define MOVE_DKTP_LF LC(LEFT)
+#define MOVE_DKTP_DN LC(DOWN)
+#define MOVE_DKTP_RT LC(RIGHT)
 #endif
-*/
 
+/*
 #ifdef LINUX
 #define NEWTERM LC(LA(T)) // linux 
 #define QUIT LA(F4)       // windows/linux
@@ -88,6 +93,7 @@
 #define MOVE_DKTP_DN LG(LS(DOWN))
 #define MOVE_DKTP_RT LG(LS(RIGHT))
 #endif
+*/
 
 / {
     /* Tap-hold and related behaviors */
