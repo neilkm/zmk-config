@@ -204,8 +204,8 @@
             display-name = "Mouse";
             bindings = <
            /*top row*/   &trans &trans &trans &trans &trans /**/ &kp PG_UP &kp C_AC_BACK &mmv CURSOR_UP_FAST &kp C_AC_FORWARD &trans
-           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &kp PG_DN &mmv CURSOR_LEFT_FAST &mmv CURSOR_DOWN_FAST &mmv CURSOR_RIGHT_FAST &trans
-           /*bottom row*/&trans &trans &trans &mo 6 &trans /**/ &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans
+           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &kp PG_DN &mmv CURSOR_LEFT_FAST &mmv CURSOR_DOWN_FAST &mmv CURSOR_RIGHT_FAST &mo 6
+           /*bottom row*/&trans &trans &trans &trans &trans /**/ &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans
            /*thumb row*/ &trans &trans &trans /**/ &trans &trans &trans 
             >;
         };
@@ -214,7 +214,7 @@
             display-name = "Scroll";
             bindings = <
            /*top row*/   &trans &trans &trans &trans &trans /**/ &kp PG_UP &kp C_AC_BACK &msc SCRL_UP_FAST &kp C_AC_FORWARD &trans
-           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &kp PG_DN &msc SCRL_LEFT_FAST &msc SCRL_DOWN_FAST &msc SCRL_RIGHT_FAST &trans
+           /*middle row*/&kp LCTL &kp LGUI &kp LALT &kp LSHIFT &trans /**/ &kp PG_DN &msc SCRL_LEFT_FAST &msc SCRL_DOWN_FAST &msc SCRL_RIGHT_FAST &mo 6
            /*bottom row*/&trans &trans &trans &trans &trans /**/ &trans &mkp LCLK &mkp MCLK &mkp RCLK &trans
            /*thumb row*/ &trans &trans &trans /**/ &trans &trans &trans 
             >;
