@@ -19,9 +19,9 @@
 //#define LINUX
 
 // Tap hold timings (ms):
-#define INDEX_MODS 150
-#define HOME_MODS 200
-#define THUMB_MODS 200 
+#define INDEX_MODS 175
+#define HOME_MODS 250
+#define THUMB_MODS 250 
 
 // Cursor movement speed (pixels per tick-ish)
 #define CURSOR_STEP 600
